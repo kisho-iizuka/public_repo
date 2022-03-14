@@ -85,7 +85,7 @@ def push_zipcode_data_to_executors():
   os.makedirs(target_dir, exist_ok=True)
   request.urlretrieve(remote_url, target_file)
   # zipデータベースをpandasデータフレームに読み込みます
-  search = SearchEngine(db_file_dir=target_dir)
+  search = SearchEngine(db_file_path=target_dir)
   conn = sqlite3.connect(target_file)
   pdf = pd.read_sql_query('''select  zipcode, lat, lng, radius_in_miles, 
                           bounds_west, bounds_east, bounds_north, bounds_south from 
